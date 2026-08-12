@@ -17,6 +17,7 @@
 
                 specialArgs = {
                     hostname = "x1";
+                    keyboardLayout = "de";
                 };
 
                 modules = [

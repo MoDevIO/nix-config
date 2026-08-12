@@ -5,5 +5,10 @@
         extraGroups = [ "networkmanager" "wheel" ];
     };
 
-    #home-manager.users.mo = import ../../home;
+    home-manager = {
+        users.mo = import ../../home;
+
+        useGlobalPkgs = true;
+        useUserPackages = true;
+    };
 }
