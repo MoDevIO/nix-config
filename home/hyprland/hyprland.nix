@@ -1,4 +1,4 @@
-{ lib, ... }:
+{ lib, keyboardLayout, ... }:
 
 let
     lua = lib.generators.mkLuaInline;
@@ -21,6 +21,8 @@ in
 
         configType = "lua";
         settings = {
+
+            config.input.kb_layout = keyboardLayout;
 
             step._var = 20;
 

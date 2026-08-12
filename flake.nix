@@ -22,7 +22,33 @@
 
                 modules = [
                     ./hosts/x1
+
                     home-manager.nixosModules.home-manager
+                    {
+                    home-manager.extraSpecialArgs = {
+                        keyboardLayout = "de";
+                    };
+                    }
+                ];
+            };
+            
+            t14 = nixpkgs.lib.nixosSystem {
+                system = "x86_64-linux";
+
+                specialArgs = {
+                    hostname = "t14";
+                    keyboardLayout = "gb";
+                };
+
+                modules = [
+                    ./hosts/t14
+
+                    home-manager.nixosModules.home-manager
+                    {
+                    home-manager.extraSpecialArgs = {
+                        keyboardLayout = "gb";
+                    };
+                    }
                 ];
             };
         };
