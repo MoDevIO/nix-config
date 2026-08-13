@@ -20,10 +20,30 @@ in
         enable = true;
 
         configType = "lua";
+
         settings = {
 
-            config.input.kb_layout = keyboardLayout;
+	    monitor = {
+		output = "eDP-1";
+		mode = "1920x1200@60";
+		position = "0x0";
+		scale = 1.2;
+	    };
 
+            config = {
+	    	input.kb_layout = keyboardLayout;
+
+		general = {
+		    gaps_in = 5;
+		    gaps_out = 15;
+		    border_size = 3;
+		};
+
+		decoration = {
+		    rounding = 13;
+		    rounding_power = 2;
+	    	};
+	    };
             step._var = 20;
 
             bind = [
@@ -36,6 +56,12 @@ in
                 key = "SUPER + Q";
                 action = "hl.dsp.exec_cmd(\"kitty\")";
                 })
+
+		(bind {
+                key = "SUPER + B";
+                action = "hl.dsp.exec_cmd(\"firefox\")";
+                })
+
 
                 (bind {
                 key = "SUPER + M";
