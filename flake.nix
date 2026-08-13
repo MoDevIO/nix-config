@@ -8,9 +8,13 @@
             url = "github:nix-community/home-manager";
             inputs.nixpkgs.follows = "nixpkgs";
         };
+
+        qylock.url = "github:Darkkal44/qylock";
+
+
     };
 
-    outputs = { nixpkgs, home-manager, ... }: {
+    outputs = { nixpkgs, home-manager, qylock, ... }: {
         nixosConfigurations = {
             x1 = nixpkgs.lib.nixosSystem {
                 system = "x86_64-linux";
@@ -29,6 +33,8 @@
                         keyboardLayout = "de";
                     };
                     }
+
+                    qylock.nixosModules.default
                 ];
             };
             
@@ -49,6 +55,8 @@
                         keyboardLayout = "gb";
                     };
                     }
+
+                    qylock.nixosModules.default
                 ];
             };
         };

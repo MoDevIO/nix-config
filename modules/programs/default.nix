@@ -6,5 +6,6 @@
         ./hyprland.nix
         ./neovim.nix
         ./vscode.nix
+        ./qylock.nix
     ];
 }
