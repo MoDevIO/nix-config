@@ -4,7 +4,8 @@
         ./hyprland/hyprland.nix
         ./kitty/kitty.nix
         ./nvim/nvim.nix
-        ./firefox/firefox.nix 
+        ./firefox/firefox.nix
+        ./vscode.nix 
         ./dark-mode.nix
         ./nixcord/nixcord.nix
     ];
