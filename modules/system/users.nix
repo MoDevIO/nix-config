@@ -1,3 +1,5 @@
+{ nixcord, ... }:
+
 {
     users.users."mo" = {
         isNormalUser = true;
@@ -6,9 +8,14 @@
     };
 
     home-manager = {
-        users.mo = import ../../home;
 
         useGlobalPkgs = true;
         useUserPackages = true;
+
+        users.mo.imports = [
+            ../../home
+            nixcord.homeModules.nixcord
+        ];
+
     };
 }
