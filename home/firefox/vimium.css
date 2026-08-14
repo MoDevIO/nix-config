@@ -1,0 +1,418 @@
+/* Snappy pop-in animation for link hints */
+@keyframes hint-pop {
+  from {
+    transform: scale(0.5);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* link hints */
+.LH {
+  border: 2px #ffffff solid;
+  background: #2a2a2a;
+  margin-top: -2px;
+  margin-left: -2px;
+  color: #ffffff;
+  z-index: 0;
+  scale: 1.1;
+  font-family: JetBrainsMono Nerd Font;
+  box-shadow: 0px 2px 11px rgb(0, 0, 0, 0.25);
+  animation: hint-pop 0.08s cubic-bezier(0.175, 0.885, 0.32, 1.15) forwards;
+}
+
+.LH:before {
+  position: absolute;
+  background: #2a2a2a;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  content: "";
+  z-index: -1;
+}
+
+.D .LH {
+  border-color: #ffffff;
+  color: #ffffff;
+}
+
+/* hints matching chars */
+.MC {
+  color: #ffffff;
+  font-weight: bold;
+}
+
+.D .MC {
+  color: #ffffff;
+}
+
+/* bottom hud (This controls the outer shell of the / search bar) */
+.HUD {
+  bottom: 1rem;
+  left: unset;
+  right: 1rem;
+  border: 1px #ffffff solid;
+  border-radius: 6px;
+  box-shadow: 0 3px 10px #000000;
+  padding: 0.5rem 1rem;
+  height: 1.5rem !important;
+  line-height: 21px;
+  text-transform: lowercase;
+  background: #121212 !important; /* Fixed padding mismatch here */
+  color: #e0e0e0;
+  max-width: 420px;
+  min-width: unset;
+  display: flex;
+  align-items: center;
+}
+
+.has-dark .HUD {
+  background: #121212 !important;
+}
+
+.HUD.UI {
+  min-width: 180px;
+  align-items: unset;
+}
+
+.Omnibar {
+  padding-bottom: 20px;
+}
+
+.HUD:after {
+  border: none;
+  background: #121212 !important;
+}
+
+.HUD.D:after {
+  background: #121212 !important;
+}
+
+/* #omni */
+/* ^ do not touch this line ^ */
+
+* {
+  font-family: "JetBrainsMono Nerd Font" !important;
+}
+
+.transparent {
+  opacity: 0.96;
+}
+
+@keyframes omni-slide-down {
+  from {
+    transform: translateY(-10px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 0.96;
+  }
+}
+
+body {
+  border-radius: 16px;
+  border: 3px #ffffff solid;
+  box-shadow: 2 9px 15px #000000;
+  animation: omni-slide-down 0.15s ease-out;
+}
+
+body.has-dark {
+  border-color: #ffffff;
+}
+
+body:after {
+  border: unset;
+}
+
+#bar {
+  background: #121212;
+  border-radius: unset;
+  border-bottom: unset;
+  height: 36px;
+  padding: 9px 10px;
+  padding-bottom: 5px;
+}
+
+.has-dark #bar {
+  background: #121212;
+}
+
+#bar::before {
+  content: "❯";
+  display: inline-block;
+  width: 1rem;
+  height: 16px;
+  position: absolute;
+  left: 1rem;
+  z-index: 300;
+  font-size: 10;
+  padding: 6px 0;
+  line-height: 1.6em;
+  text-align: right;
+  color: #e0e0e0;
+  font-weight: bold;
+}
+
+.has-dark #bar::before {
+  color: #121212;
+}
+
+#input {
+  border: none;
+  background: none;
+  box-shadow: unset;
+  font-size: 20px;
+  color: #ffffff;
+  padding-left: 40rem;
+}
+
+.has-dark #input {
+  color: #ffffff;
+}
+
+#toolbar {
+  top: 7px;
+  right: 14px;
+}
+
+#toolbar .button {
+  height: 23px;
+  width: 24px;
+  padding: 3px;
+  cursor: pointer;
+  border: 3px transparent solid;
+  position: relative;
+  opacity: 0.5;
+  transition: 100ms ease-in-out opacity;
+}
+
+#toolbar .button:hover {
+  background: unset;
+  opacity: 1;
+}
+
+#toolbar .button > svg {
+  opacity: 0.5;
+}
+
+#toolbar .button#toggle-dark > svg {
+  transform: translateY(1px) rotate(45deg);
+}
+
+#toolbar .button#close > svg {
+  transform: scale(1.4);
+}
+
+#toolbar .button#toggle-dark .i-moon {
+  fill: unset;
+  stroke-width: 1.4;
+}
+
+#toolbar .button#toggle-dark .i-sun {
+  stroke-width: 2.1;
+}
+
+.has-dark #toolbar .button#toggle-dark .i-moon {
+  fill: #e0e0e0;
+  stroke: #e0e0e0;
+}
+
+.has-dark #toolbar .button#toggle-dark .i-sun {
+  fill: #e0e0e0;
+  stroke: #e0e0e0;
+}
+
+.has-dark #toolbar .button#close > svg {
+  fill: #e0e0e0;
+  stroke: #e0e0e0;
+}
+
+#list {
+  background: #121212;
+  border-radius: unset;
+  padding: 5px;
+  padding-bottom: 6px;
+}
+
+.has-dark #list {
+  background: #121212;
+}
+
+.item {
+  padding: 6px 10px;
+  padding-top: 3px;
+  margin: 0 5px;
+  margin-top: -2px;
+  border-radius: 6px;
+  border: unset;
+  border: 3px transparent solid;
+  height: 44px;
+}
+
+.item::before {
+  position: absolute;
+  background: none;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  content: "";
+  z-index: -1;
+}
+
+.item.s,
+.item:hover {
+  background-color: unset;
+  border: 3px #ffffff solid;
+}
+
+.has-dark .item.s,
+.has-dark .item:hover {
+  border: 3px #ffffff solid;
+}
+
+.item.s::before {
+  background-color: rgba(255, 255, 255, 0.15);
+}
+
+.item:hover::before {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.has-dark .item.s::before {
+  background-color: rgba(255, 255, 255, 0.15);
+}
+
+.has-dark .item:hover::before {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.item .icon {
+  width: 24px;
+  height: 24px;
+  padding-right: unset;
+  margin-right: 10px;
+  margin-top: 5px;
+  background-position: bottom right;
+}
+
+.has-dark .item .icon {
+  fill: #a0a0a0;
+  stroke: #a0a0a0;
+}
+
+.item .icon path {
+  opacity: 0.45;
+  position: absolute;
+  z-index: -1;
+  transform-origin: 0px 0px;
+  transform: scale(0.75);
+}
+
+.item .top {
+  color: #ffffff;
+  position: relative;
+  height: 30px;
+}
+
+.has-dark .item .top {
+  color: #ffffff;
+}
+
+.item .top .title {
+  font-size: 16;
+  line-height: 0.8em;
+  margin-top: 2px;
+}
+
+.item .top .title match {
+  color: #ffffff;
+  text-decoration: underline;
+}
+
+.has-dark .item .top .title match {
+  color: #ffffff;
+  text-decoration: underline;
+}
+
+.item .top .title:empty::after {
+  content: "<blank>";
+}
+
+.item .bottom {
+  margin-top: -12px;
+  padding-left: 14px;
+}
+
+.item .bottom a {
+  color: #a0a0a0;
+  opacity: 0.9;
+  font-size: 16;
+}
+
+.has-dark .item .bottom a {
+  color: #a0a0a0;
+  opacity: 0.9;
+}
+
+.item .bottom a match {
+  color: #ffffff;
+  text-decoration: underline;
+}
+
+.has-dark .item .bottom a match {
+  color: #ffffff;
+  text-decoration: underline;
+}
+
+/* #find */
+/* ^ do not touch this line ^ */
+
+* {
+  font-family: "JetBrainsMono Nerd Font" !important;
+  box-shadow: none !important;
+  text-shadow: none !important;
+}
+
+/* Guarantee completely seamless #121212 blending for the inner find elements */
+:host,
+:host(.D),
+body,
+body.D,
+html {
+  background-color: #121212 !important;
+  background: #121212 !important;
+  color: #e0e0e0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  border: none !important;
+}
+
+.r,
+.r.D {
+  background-color: #121212 !important;
+  background: #121212 !important;
+  color: #e0e0e0 !important;
+  border: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  display: flex !important;
+  align-items: center !important;
+  height: auto !important;
+}
+
+#i,
+.D #i {
+  background-color: #121212 !important;
+  background: #121212 !important;
+  color: #e0e0e0 !important;
+  border: none !important;
+  outline: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
