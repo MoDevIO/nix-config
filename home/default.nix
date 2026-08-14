@@ -7,6 +7,7 @@
         ./firefox/firefox.nix
         ./vscode.nix 
         ./dark-mode.nix
+        ./mouse-cursor.nix
         ./nixcord/nixcord.nix
     ];
 
