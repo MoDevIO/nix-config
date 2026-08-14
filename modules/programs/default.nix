@@ -7,5 +7,8 @@
         ./neovim.nix
         ./vscode.nix
         ./qylock.nix
+        ./fractal.nix
+        ./appimage.nix
+        ./prism-launcher.nix
     ];
 }
