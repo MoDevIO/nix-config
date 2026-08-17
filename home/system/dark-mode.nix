@@ -1,3 +1,5 @@
+{ pkgs, ... }:
+
 {
     gtk = {
         enable = true;
@@ -9,6 +11,11 @@
 
         gtk4.extraConfig = {
             "gtk-application-prefer-dark-theme" = true;
+        };
+
+        iconTheme = {
+            name = "Adwaita";
+            #package = 
         };
     };
 
