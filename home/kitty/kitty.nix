@@ -1,11 +1,13 @@
+{ hostname, ... }:
+
 {
     programs.kitty = {
         enable = true;
 
         autoThemeFiles = {
-            dark = "Catppuccin-Mocha";
-            light = "Catppuccin-Mocha";
-            noPreference = "Catppuccin-Mocha";
+            dark = "everforest_dark_medium";
+            light = "everforest_light_medium";
+            noPreference = "everforest_dark_medium";
         };
 
         settings = {
@@ -34,6 +36,7 @@
 
     programs.zsh = {
         enable = true;
+        autosuggestion.enable = true;
 
         oh-my-zsh = {
             enable = true;
@@ -42,15 +45,43 @@
 
         shellAliases = {
             # Git
+            gi = "git init";
             ga = "git add";
             gc = "git commit";
             gca = "git commit --amend";
             gs = "git status";
             gp = "git push";
             gpl = "git pull";
-            gcl = "git clone git@github.com:";
+            gcl = "git clone";
             gco = "git checkout";
+
+            # Nix
+            ns = "nix-shell -p";
+            nd = "nix develop";
+            nors = "sudo nixos-rebuild switch --flake ~/Documents/Coding/nix-config#" + hostname;
         };
 
+    };
+
+    programs.bash = {
+        enable = true;
+
+        shellAliases = {
+            # Git
+            gi = "git init";
+            ga = "git add";
+            gc = "git commit";
+            gca = "git commit --amend";
+            gs = "git status";
+            gp = "git push";
+            gpl = "git pull";
+            gcl = "git clone";
+            gco = "git checkout";
+
+            # Nix
+            ns = "nix-shell -p";
+            nd = "nix develop";
+            nors = "sudo nixos-rebuild switch --flake ~/Documents/Coding/nix-config#" + hostname;
+        };
     };
 }
